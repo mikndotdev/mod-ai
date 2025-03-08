@@ -1,0 +1,22 @@
+{
+	"name": "ai-mod",
+	"module": "src/index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"format": "biome format --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"@ai-sdk/google": "^1.1.20",
+		"ai": "^4.1.54",
+		"discord.js": "^14.18.0",
+		"zod": "^3.24.2"
+	}
+}
