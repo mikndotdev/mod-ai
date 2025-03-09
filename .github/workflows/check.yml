@@ -13,11 +13,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
+
       - name: Install dependencies
         run: bun install
+
       - name: Run check
         run: bun check
+
       - name: Run lint
         run: bun lint
