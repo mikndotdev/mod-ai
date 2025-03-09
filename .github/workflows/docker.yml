@@ -42,7 +42,7 @@ jobs:
           cache-to: type=gha,mode=max
 
   build-arm64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     env:
       IMAGE_NAME: mod-ai
 

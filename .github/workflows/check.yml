@@ -1,0 +1,23 @@
+name: Check typescript and lints
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v4
+      - name: Install dependencies
+        run: bun install
+      - name: Run check
+        run: bun check
+      - name: Run lint
+        run: bun lint
