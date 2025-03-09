@@ -44,7 +44,7 @@ jobs:
   build-arm64:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: artifacter-bot
+      IMAGE_NAME: mod-ai
 
     steps:
       - name: Checkout code
