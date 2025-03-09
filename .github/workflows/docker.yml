@@ -68,7 +68,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  build-arm64:
+  build-merge:
     runs-on: ubuntu-latest
 
     needs:
