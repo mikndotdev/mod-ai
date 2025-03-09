@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Guild" ADD COLUMN     "threshold" INTEGER NOT NULL DEFAULT 500;

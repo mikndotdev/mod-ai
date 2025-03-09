@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Guild {
+  id                  String  @id
+  active              Boolean @default(false)
+  threshold           Int     @default(400)
+  modlog_channel_id   String?
+  debuglog_channel_id String?
+  model               String  @default("gemini")
+  system_prompt       String  @default("Determine how well the posts sent by users are suitable for posting on social networking sites.\nThis networking site has this rules:\n- Treat everyone with respect. Absolutely no harassment, witch hunting, sexism, racism, or hate speech will be tolerated.\n- No spam or self-promotion (server invites, advertisements, etc) without permission from a staff member. However, please do not interpret just posting a URL as advertising.\n- No age-restricted or obscene content. This includes text, images, or links featuring nudity, sex, hard violence, or other graphically disturbing content.\nDecide the score of the content posted by the user based on this rule. (from 0 to 1000) 0 is a very good post that does not violate the rules, and 1000 is a post that violates the rules perfectly.\n\nDo not output 1000 unless there is a clear discriminatory term. They should be on a much lower score.\nDo not output high scores for submissions ex. \"a\" or \"あ\". These are probably just tests, and there is nothing wrong with them.\n\nIf the score is 0, you don't need to output the reason.\n\nSpecified format: score|reason\nExample for \"wtf\": 400|possibly offensive language\nExample for \"Here is\": 0|\nExample for \"ちんちん\": 700|possibly sexually explicit language\n\nReasons should be output in detail; do not use ambiguous terms such as discriminatory terms.\n\nBad score and reason:")
+}
