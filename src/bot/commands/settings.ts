@@ -32,6 +32,10 @@ export default {
 			.setTitle("Settings")
 			.setColor(guildDB.active ? Colors.Green : Colors.Red)
 			.addFields(
+                {
+                    name: "AI Moderation",
+                    value: guildDB.active ? "Enabled" : "Disabled",
+                },
 				{
 					name: "Debug Log Channel",
 					value: guildDB.debuglog_channel_id
@@ -45,13 +49,13 @@ export default {
 						: "Not set",
 				},
 				{
-					name: "AI Moderation",
-					value: guildDB.active ? "Enabled" : "Disabled",
-				},
-				{
 					name: "Model",
 					value: `${models[guildDB.model].emoji} ${models[guildDB.model].name}`,
 				},
+                {
+                    name: "Moderation Threshold",
+                    value: guildDB.threshold.toString(),
+                }
 			)
 			.setTimestamp();
 
