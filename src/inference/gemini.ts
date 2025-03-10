@@ -27,6 +27,7 @@ export async function check(message: string, systemprompt: string) {
         schema,
         system: systemprompt,
         prompt: message,
+        temperature: 0,
     });
     return result;
 }
